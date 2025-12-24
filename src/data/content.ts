@@ -40,26 +40,49 @@ export const content = {
     projects: {
       title: "Selected",
       titleSuffix: "Works",
+      subtitle: "Featured Projects",
       items: [
         {
-          title: "Astral E-Commerce",
-          description: "A headless shopify experience built with Next.js 14, featuring 3D product previews and AI-driven recommendations.",
-          image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1920&auto=format&fit=crop"
+          title: "Project Name One",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1920&auto=format&fit=crop",
+          type: "Full Stack Application",
+          tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+          status: "live",
+          statusLabel: "Live",
+          date: "2024",
+          demoUrl: "https://example.com",
+          githubUrl: "https://github.com/erickcarpes"
         },
         {
-          title: "Nebula Dashboard",
-          description: "Real-time analytics platform analyzing crypto market data with sub-millisecond latency updates via WebSockets.",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop"
+          title: "Project Name Two",
+          description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
+          type: "Dashboard & Analytics",
+          tech: ["Next.js", "TailwindCSS", "Prisma", "GraphQL", "AWS"],
+          status: "live",
+          statusLabel: "Live",
+          date: "2024",
+          demoUrl: "https://example.com",
+          githubUrl: "https://github.com/erickcarpes"
         },
         {
-          title: "Quantum Chat",
-          description: "End-to-end encrypted messaging app using the Signal Protocol, designed for maximum privacy and anonymity.",
-          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1920&auto=format&fit=crop"
+          title: "Project Name Three",
+          description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
+          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1920&auto=format&fit=crop",
+          type: "Mobile Application",
+          tech: ["React Native", "Expo", "Firebase", "TypeScript"],
+          status: "development",
+          statusLabel: "In Development",
+          date: "2024",
+          demoUrl: "",
+          githubUrl: "https://github.com/erickcarpes"
         }
       ],
       links: {
         demo: "Live Demo",
-        code: "Code"
+        code: "Source Code",
+        viewProject: "View Project"
       }
     },
     career: {
@@ -126,8 +149,8 @@ export const content = {
     },
     about: {
       title: "01. Sobre Mim",
-      bio1: "Sou um desenvolvedor criativo focado em construir experiências digitais imersivas. Acredito que codificar não é apenas sobre lógica, mas sobre criar sentimentos e interações que deixam uma impressão duradoura.",
-      bio2: "Com experiência em design e engenharia, eu conecto a estética à funcionalidade."
+      bio1: "Sou engenheiro de software focado em construir sistemas escaláveis, bem arquitetados e orientados a impacto real. Tenho experiência em aplicações full stack, arquitetura backend, dados e integração de soluções baseadas em inteligência artificial.",
+      bio2: "Meu trabalho une engenharia sólida, atenção à experiência do usuário e preocupação com manutenibilidade, performance e crescimento do produto ao longo do tempo."
     },
     tech: {
       title: "Minha Stack ",
@@ -158,26 +181,49 @@ export const content = {
     projects: {
       title: "Trabalhos",
       titleSuffix: "Selecionados",
+      subtitle: "Projetos em Destaque",
       items: [
         {
-          title: "Astral E-Commerce",
-          description: "Uma experiência Shopify headless construída com Next.js 14, apresentando previews de produtos em 3D e recomendações via IA.",
-          image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1920&auto=format&fit=crop"
+          title: "Nome do Projeto Um",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1920&auto=format&fit=crop",
+          type: "Aplicação Full Stack",
+          tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+          status: "live",
+          statusLabel: "No Ar",
+          date: "2024",
+          demoUrl: "https://example.com",
+          githubUrl: "https://github.com/erickcarpes"
         },
         {
-          title: "Nebula Dashboard",
-          description: "Plataforma de analytics em tempo real analisando dados de cripto com latência sub-milissegundo via WebSockets.",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop"
+          title: "Nome do Projeto Dois",
+          description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
+          type: "Dashboard & Analytics",
+          tech: ["Next.js", "TailwindCSS", "Prisma", "GraphQL", "AWS"],
+          status: "live",
+          statusLabel: "No Ar",
+          date: "2024",
+          demoUrl: "https://example.com",
+          githubUrl: "https://github.com/erickcarpes"
         },
         {
-          title: "Quantum Chat",
-          description: "App de mensagens criptografadas de ponta a ponta usando o Protocolo Signal, projetado para privacidade máxima.",
-          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1920&auto=format&fit=crop"
+          title: "Nome do Projeto Três",
+          description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
+          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1920&auto=format&fit=crop",
+          type: "Aplicativo Mobile",
+          tech: ["React Native", "Expo", "Firebase", "TypeScript"],
+          status: "development",
+          statusLabel: "Em Desenvolvimento",
+          date: "2024",
+          demoUrl: "",
+          githubUrl: "https://github.com/erickcarpes"
         }
       ],
       links: {
         demo: "Ver Demo",
-        code: "Código"
+        code: "Código Fonte",
+        viewProject: "Ver Projeto"
       }
     },
     career: {
