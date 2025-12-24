@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import BlurText from './BlurText';
+import BlurText from '../BlurText';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function About() {

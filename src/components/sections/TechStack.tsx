@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import Magnet from './Magnet';
+import Magnet from '../Magnet';
 
 export default function TechStack() {
   const { t } = useLanguage();
@@ -68,9 +68,9 @@ function MarqueeRow({ items, direction }: { items: any[], direction: "left" | "r
                                 href={item.url} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-xl text-gray-300 font-medium hover:bg-[#CF4BD6] hover:text-white hover:border-[#CF4BD6] hover:shadow-[0_0_30px_rgba(207,75,214,0.5)] transition-all duration-300 backdrop-blur-sm group-hover/card:scale-105"
+                                className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-4 bg-white/5 border border-white/10 rounded-full text-sm md:text-xl text-gray-300 font-medium hover:bg-[#CF4BD6] hover:text-white hover:border-[#CF4BD6] hover:shadow-[0_0_30px_rgba(207,75,214,0.5)] transition-all duration-300 backdrop-blur-sm group-hover/card:scale-105"
                             >
-                                <img src={item.icon} alt={item.name} className="w-6 h-6" />
+                                <img src={item.icon} alt={item.name} className="w-4 h-4 md:w-6 md:h-6" />
                                 <span>{item.name}</span>
                             </a>
                         </Magnet>
