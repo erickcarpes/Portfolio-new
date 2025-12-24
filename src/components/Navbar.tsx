@@ -26,32 +26,32 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-4 py-3 px-4 bg-white/10 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl">
+    <div className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md md:w-auto md:max-w-none">
+      <div className="flex items-center justify-center gap-2 md:gap-4 py-2 md:py-3 px-3 md:px-4 bg-white/10 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl">
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}
-            className="relative flex flex-col items-center justify-center p-2 rounded-full transition-colors"
+            className="relative flex flex-col items-center justify-center p-1.5 md:p-2 rounded-full transition-colors"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
             <item.icon
-              size={24}
-              className={`transition-colors duration-300 ${
+              size={20}
+              className={`md:w-6 md:h-6 transition-colors duration-300 ${
                 hoveredIndex === index ? "text-[#CF4BD6]" : "text-gray-400"
               }`}
             />
             
-            {/* Tooltip */}
+            {/* Tooltip - hidden on mobile */}
             {hoveredIndex === index && (
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: -40 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="absolute text-xs font-semibold text-white bg-black/80 px-2 py-1 rounded top-0 pointer-events-none whitespace-nowrap"
+                className="hidden md:block absolute text-xs font-semibold text-white bg-black/80 px-2 py-1 rounded top-0 pointer-events-none whitespace-nowrap"
               >
                 {item.name}
               </motion.span>

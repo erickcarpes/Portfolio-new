@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import About from '@/components/About';
-import Career from '@/components/Career';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import TechStack from '@/components/TechStack'; // Import TechStack
+import About from '@/components/sections/About';
+import Career from '@/components/sections/Career';
+import Projects from '@/components/sections/Projects';
+import Contact from '@/components/sections/Contact';
+import TechStack from '@/components/sections/TechStack'; // Import TechStack
 import LanguageSwitch from '@/components/LanguageSwitch'; // Import LanguageSwitch
 import LiquidEther from '@/components/LiquidEther';
 import HyperSpeed from '@/components/Hyperspeed';
@@ -75,25 +75,25 @@ function Hero() {
       {/* Content */}
       <motion.div
         style={{ scale: contentScale, opacity: contentOpacity }}
-        className="relative z-20 flex h-full flex-col items-center justify-center text-center px-6 pointer-events-none"
+        className="relative z-20 flex h-full flex-col items-center justify-center text-center px-4 md:px-6 pointer-events-none"
       >
-        <div className="flex flex-col items-center">
-            <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-col items-center max-w-4xl">
+            <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2">
               <BlurText
                 key={t.hero.line1} // Key to force re-render on lang change
                 text={t.hero.line1}
                 delay={50}
                 animateBy="words"
                 direction="top"
-                className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
               />
             </div>
-            <div className="flex flex-wrap justify-center gap-2 mt-2">
+            <div className="flex flex-wrap justify-center gap-1 md:gap-2 mt-1 md:mt-2">
                <GradientText
                 colors={["#78B4AF", "#CF4BD6", "#7729A3"]}
                 animationSpeed={3}
                 showBorder={false}
-                className="text-4xl md:text-6xl font-bold tracking-tight">
+                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                   {t.hero.word}
                 </GradientText>
                 <BlurText
@@ -102,7 +102,7 @@ function Hero() {
                   delay={50}
                   animateBy="words"
                   direction="top"
-                  className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+                  className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
                 />
             </div>
         </div>
@@ -111,9 +111,9 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-8"
+          className="mt-6 md:mt-8"
         >
-          <span className="text-sm md:text-base tracking-[0.2em] uppercase text-gray-400 font-light">
+          <span className="text-xs sm:text-sm md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase text-gray-400 font-light">
             {t.hero.role}
           </span>
         </motion.div>
