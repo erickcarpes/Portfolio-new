@@ -57,7 +57,7 @@ export default function Career() {
           className="relative"
         >
           {/* Vertical Line */}
-          <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-linear-to-b from-[#CF4BD6] via-[#78B4AF] to-transparent" />
+          <div className="absolute left-0 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-linear-to-b from-[#CF4BD6] via-[#78B4AF] to-transparent" />
 
           {/* Timeline Items */}
           {t.career.items.map((item: any, index: number) => (
@@ -72,7 +72,7 @@ export default function Career() {
             >
               {/* Timeline Dot */}
               <motion.div
-                className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-[#CF4BD6] rounded-full z-10 shadow-[0_0_20px_rgba(207,75,214,0.6)]"
+                className="absolute left-0 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-[#CF4BD6] rounded-full z-10 shadow-[0_0_20px_rgba(207,75,214,0.6)]"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 300 }}

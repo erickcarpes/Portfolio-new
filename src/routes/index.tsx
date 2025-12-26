@@ -78,9 +78,10 @@ function Hero() {
         className="relative z-20 flex h-full flex-col items-center justify-center text-center px-4 md:px-6 pointer-events-none"
       >
         <div className="flex flex-col items-center max-w-4xl">
-            <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2">
+            {/* Line 1 */}
+            <div className="text-center">
               <BlurText
-                key={t.hero.line1} // Key to force re-render on lang change
+                key={t.hero.line1}
                 text={t.hero.line1}
                 delay={50}
                 animateBy="words"
@@ -88,7 +89,8 @@ function Hero() {
                 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
               />
             </div>
-            <div className="flex flex-wrap justify-center gap-1 md:gap-2 mt-1 md:mt-2">
+            {/* Line 2 - Highlighted word + rest */}
+            <div className="flex items-center justify-center gap-2 md:gap-3 mt-1 md:mt-2">
                <GradientText
                 colors={["#78B4AF", "#CF4BD6", "#7729A3"]}
                 animationSpeed={3}
