@@ -29,7 +29,7 @@ export default function LanguageSwitch() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             animate={isAnimating ? {
-                rotate: [0, 900], 
+                rotate: [0, 720], 
                 scale: [1, 0, 1.2, 1],
                 borderRadius: ["50%", "20%", "50%"]
             } : {}}
