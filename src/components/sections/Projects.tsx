@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Calendar, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Projects() {
   const { t } = useLanguage();
+  const [selectedImages, setSelectedImages] = useState<Record<number, number>>({});
 
   return (
     <section id="projects" className="min-h-screen w-full bg-black px-4 md:px-6 py-16 md:py-24 relative overflow-hidden">
@@ -41,6 +43,7 @@ export default function Projects() {
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center ${index % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
                 {/* Image Side - 7 columns */}
                 <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:col-start-6' : ''}`}>
+                  {/* Main Image Container */}
                   <div className="relative overflow-hidden rounded-xl md:rounded-2xl aspect-16/10 bg-zinc-900">
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
@@ -50,12 +53,19 @@ export default function Projects() {
                       0{index + 1}
                     </span>
                     
-                    {/* Image */}
-                    <motion.img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
+                    {/* Main Image with animation */}
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={selectedImages[index] || 0}
+                        src={project.images[selectedImages[index] || 0]} 
+                        alt={project.title}
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                    </AnimatePresence>
                     
                     {/* Status badge */}
                     <div className="absolute top-3 right-3 md:top-6 md:right-6 z-20">
@@ -82,6 +92,51 @@ export default function Projects() {
                       </a>
                     </div>
                   </div>
+
+                  {/* Thumbnail Gallery - only show if more than 1 image */}
+                  {project.images.length > 1 && (
+                    <div className="relative mt-3 md:mt-4">
+                      {/* Left fade indicator */}
+                      <div className="absolute left-0 top-0 bottom-2 w-8 bg-linear-to-r from-black to-transparent z-10 pointer-events-none opacity-50" />
+                      {/* Right fade indicator */}
+                      <div className="absolute right-0 top-0 bottom-2 w-8 bg-linear-to-l from-black to-transparent z-10 pointer-events-none opacity-50" />
+                      
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="flex gap-2 md:gap-3 overflow-x-auto pb-3 px-2 scroll-smooth snap-x snap-mandatory"
+                        style={{
+                          scrollbarWidth: 'thin',
+                          scrollbarColor: '#CF4BD6 rgba(255,255,255,0.1)',
+                        }}
+                      >
+                        {project.images.map((img, imgIndex) => (
+                          <motion.button
+                            key={imgIndex}
+                            onClick={() => setSelectedImages(prev => ({ ...prev, [index]: imgIndex }))}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`relative flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-lg md:rounded-xl overflow-hidden border-2 transition-all duration-300 snap-start ${
+                              (selectedImages[index] || 0) === imgIndex
+                                ? 'border-[#CF4BD6] ring-2 ring-[#CF4BD6]/30 scale-105'
+                                : 'border-white/10 hover:border-white/30'
+                            }`}
+                          >
+                            <img 
+                              src={img} 
+                              alt={`${project.title} - Image ${imgIndex + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                            {/* Active indicator overlay */}
+                            {(selectedImages[index] || 0) === imgIndex && (
+                              <div className="absolute inset-0 bg-[#CF4BD6]/10" />
+                            )}
+                          </motion.button>
+                        ))}
+                      </motion.div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Side - 5 columns */}
@@ -97,10 +152,12 @@ export default function Projects() {
                   </h3>
                   
                   {/* Description card */}
-                  <div className="bg-zinc-900/80 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl border border-white/5">
-                    <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
-                      {project.description}
-                    </p>
+                  <div className="bg-zinc-900/80 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl border border-white/5 space-y-3">
+                    {project.description.split('\n\n').map((paragraph, pIndex) => (
+                      <p key={pIndex} className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
 
                   {/* Tech stack */}
